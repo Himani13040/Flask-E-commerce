@@ -14,7 +14,7 @@ idna==2.6
 instamojo-wrapper==1.1
 itsdangerous==0.24
 Jinja2==2.10
-MarkupSafe==1.0
+MarkupSafe==1.1.1
 names==0.3.0
 numpy==1.14.0
 oauth2client==4.1.2
