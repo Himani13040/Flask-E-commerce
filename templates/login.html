@@ -1,14 +1,15 @@
 <html>
 <head>
 <title>	Flask app </title>
+<link rel="stylesheet" href={{ url_for('static', filename='css/login.css') }} />
 </head>
 <body>
 <p> {{error}} </p>
-<form action="/login" method="POST">
-	<p>Email: <input type="text" name="email"></p>
-	<p>Password: <input type="password" name="password"></p>
-	<p><input type="submit"></p>
-	<a href="/registerationForm">Register here</a>
+<form id="loginForm" action="/login" method="POST">
+	<div class="inputField"><label for="loginEmail">Email</label> <input id="loginEmail" type="text" name="email"></div>
+	<div class="inputField"><label for="loginPassword">Secret</label> <input id="loginPassword" type="password" name="password"></div>
+	<div class="submitField"><input  type="submit"></div>
+	<a href="/registerationForm">Register Here</a>
 </form>
 
 </body>

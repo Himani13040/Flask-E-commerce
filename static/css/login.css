@@ -1,0 +1,29 @@
+#loginForm {
+    width:350px;
+    padding:0.5rem .5rem;
+}
+
+#loginForm div{
+    margin-bottom:1rem;
+}
+
+.inputField{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.inputField input[type=text],.inputField input[type=password] {
+    width:80%;
+}
+
+#loginSubmit {
+    text-align:right;
+}
+
+.submitField{
+    text-align:right
+}
+
+
+
