@@ -4,11 +4,23 @@ from werkzeug.utils import secure_filename
 from instamojo_wrapper import Instamojo
 import requests
 
+
+from applicationinsights.flask.ext import AppInsights
+
 app = Flask(__name__)
 app.secret_key = 'random string'
 UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = set(['jpeg', 'jpg', 'png', 'gif'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# configuring application insights for the projects
+app.config['APPINSIGHTS_INSTRUMENTATIONKEY'] = os.environ["APPINSIGHTS_INSTRUMENTATIONKEY"]
+insights =  AppInsights(app)
+
+@app.after_request
+def after_request(res):
+    insights.flush()
+    return res
 
 #Home page
 @app.route("/")
@@ -349,4 +361,4 @@ def parse(data):
     return ans
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0",port=5000)
